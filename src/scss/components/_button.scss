@@ -1,0 +1,55 @@
+@use "../base/variables" as *;
+
+.primary-button {
+  width: 250px;
+  height: 98px;
+  font-weight: 700;
+  font-size: 40px;
+  font-family: RedRose;
+  color: $primary-dark;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23px;
+  border: none;
+  border-radius: 2px;
+  background-color: $secondary-yellow;
+  z-index: 2;
+  transition: 300ms ease-in-out;
+
+  .controller-icon {
+    transition: 300ms ease-in-out;
+  }
+  .arrow {
+    position: relative;
+    width: 40px;
+    height: 30px;
+
+    &__default,
+    &__hover {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      transition: opacity 300ms ease-in-out;
+    }
+
+    &__hover {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    scale: 1.08;
+    cursor: pointer;
+    .controller-icon {
+      transform: rotate(-25deg);
+      scale: 1.1;
+    }
+    .arrow__default {
+      opacity: 0;
+    }
+    .arrow__hover {
+      opacity: 1;
+    }
+  }
+}

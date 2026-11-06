@@ -1,0 +1,34 @@
+@use "../base/variables" as *;
+
+.hero {
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 890px;
+  overflow: clip;
+
+  &__header {
+    font-size: 48px;
+    font-family: Almarai;
+    color: white;
+    > h1 {
+      font-family: RedRose;
+      font-weight: 700;
+      font-size: 140px;
+      margin-bottom: 85px;
+      white-space: nowrap;
+    }
+  }
+}
+
+.controller {
+  position: fixed;
+  top: 546px;
+  left: -88px;
+  height: 414.31;
+  -webkit-user-drag: none;
+}
