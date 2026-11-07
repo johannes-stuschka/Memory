@@ -1,6 +1,8 @@
 import "./scss/main.scss";
+import { initSettings } from "./ts/settings";
 
 init();
+initSettings();
 
 function init() {
   const fieldRef = document.getElementById("field");

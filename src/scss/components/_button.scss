@@ -1,6 +1,7 @@
 @use "../base/variables" as *;
 
 .primary-button {
+  box-sizing: border-box;
   width: 250px;
   height: 98px;
   font-weight: 700;
@@ -16,6 +17,7 @@
   background-color: $secondary-yellow;
   z-index: 2;
   transition: 300ms ease-in-out;
+  text-decoration: none;
 
   .controller-icon {
     transition: 300ms ease-in-out;

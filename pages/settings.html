@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+  </head>
+  <body>
+    <section class="settings">
+      <h1 class="settings__headline">Settings</h1>
+
+      <div class="settings__content">
+        <form class="settings__options">
+          <fieldset class="settings__group">
+            <legend class="settings__group-title">
+              <img src="../src/assets/svg/palette.svg" alt="" />
+              Game themes
+            </legend>
+            <label class="settings__option">
+              <input type="radio" name="theme" value="code-vibes" checked />
+              <span>Code vibes theme</span>
+            </label>
+            <label class="settings__option">
+              <input type="radio" name="theme" value="gaming" />
+              <span>Gaming theme</span>
+            </label>
+            <label class="settings__option">
+              <input type="radio" name="theme" value="da-projects" />
+              <span>DA Projects theme</span>
+            </label>
+            <label class="settings__option">
+              <input type="radio" name="theme" value="foods" />
+              <span>Foods theme</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="settings__group">
+            <legend class="settings__group-title">
+              <img src="../src/assets/svg/chess_pawn.svg" alt="" />
+              Choose player
+            </legend>
+            <label class="settings__option">
+              <input type="radio" name="player" value="blue" />
+              <span>Blue</span>
+            </label>
+            <label class="settings__option">
+              <input type="radio" name="player" value="orange" />
+              <span>Orange</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="settings__group">
+            <legend class="settings__group-title">
+              <img src="../src/assets/svg/style.svg" alt="" />
+              Board size
+            </legend>
+            <label class="settings__option">
+              <input type="radio" name="board-size" value="16" />
+              <span>16 cards</span>
+            </label>
+            <label class="settings__option">
+              <input type="radio" name="board-size" value="24" />
+              <span>24 cards</span>
+            </label>
+            <label class="settings__option">
+              <input type="radio" name="board-size" value="36" />
+              <span>36 cards</span>
+            </label>
+          </fieldset>
+        </form>
+
+        <div class="settings__preview">
+          <img class="settings__theme-visual" src="../src/assets/svg/theme-visual.svg" alt="Preview of the code vibes theme" />
+
+          <div class="settings__summary">
+            <span>Game theme</span>
+            <span class="settings__divider"></span>
+            <span>Player</span>
+            <span class="settings__divider"></span>
+            <span>Board size</span>
+            <button class="small-button" type="submit">
+              <img src="../src/assets/svg/smart-display.svg" alt="" />
+              Start
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
