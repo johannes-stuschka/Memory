@@ -1,9 +1,12 @@
 @use "../base/variables" as *;
 
 .hero {
+  box-sizing: border-box;
   max-width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
+  // Figma: Inhalt sitzt 33px unter der Mitte → 66px oben dazu, weil zentriert wird
+  padding-top: 66px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +18,10 @@
     font-size: 48px;
     font-family: Almarai;
     color: white;
+    > h3 {
+      font-size: inherit;
+      font-weight: 400;
+    }
     > h1 {
       font-family: RedRose;
       font-weight: 700;

@@ -1,0 +1,152 @@
+@use "../base/variables" as *;
+
+// Texte je Theme: <span class="only only--code only--da">…</span>
+$theme-names: (
+  "code-vibes": "code",
+  "gaming": "gaming",
+  "da-projects": "da",
+  "foods": "foods",
+);
+
+@each $theme, $name in $theme-names {
+  [data-theme="#{$theme}"] .only:not(.only--#{$name}) {
+    display: none;
+  }
+}
+
+.exit-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  // Figma legt die Linie nach innen → Linienstärke vom Padding abziehen
+  padding: calc(var(--exit-py, 12px) - var(--exit-border, 0px)) calc(var(--exit-px, 20px) - var(--exit-border, 0px));
+  background: var(--exit-bg);
+  border: var(--exit-border, 0px) solid var(--exit-border-color, transparent);
+  border-radius: var(--exit-radius, 10px);
+  color: var(--exit-color);
+  font-family: var(--font);
+  font-size: var(--exit-size);
+  font-weight: 700;
+  letter-spacing: var(--exit-spacing, normal);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  // Foods: Figma legt die Linie mittig auf die Kante
+  outline: var(--exit-outline, none);
+  outline-offset: -1.5px;
+  transition: 300ms ease-in-out;
+
+  &__icon {
+    width: var(--exit-icon-size, 30px);
+    height: var(--exit-icon-size, 30px);
+    background: center / contain no-repeat;
+    transition: filter 300ms ease-in-out;
+  }
+
+  &:hover {
+    padding: calc(var(--exit-py, 12px) - var(--exit-hover-border, var(--exit-border, 0px)))
+      calc(var(--exit-px, 20px) - var(--exit-hover-border, var(--exit-border, 0px)));
+    background: var(--exit-hover-bg, var(--exit-bg));
+    border-width: var(--exit-hover-border, var(--exit-border, 0px));
+    color: var(--exit-hover-color, var(--exit-color));
+    outline: var(--exit-hover-outline, var(--exit-outline, none));
+    box-shadow: var(--exit-hover-shadow, none);
+  }
+
+  &:hover &__icon {
+    filter: var(--exit-hover-icon-filter, none);
+  }
+}
+
+[data-theme="code-vibes"] .exit-button {
+  --exit-radius: 0;
+}
+
+.popup {
+  padding: 40px;
+  border: none;
+  border-radius: var(--popup-radius, 0);
+  background: var(--popup-bg, white);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 54px;
+  }
+
+  &__question {
+    width: var(--popup-text-w, 459px);
+    height: var(--popup-text-h, auto);
+    margin: 0;
+    color: var(--popup-text-color, $primary-dark);
+    font-family: var(--popup-font, var(--font));
+    font-size: var(--popup-text-size, 32px);
+    font-weight: var(--popup-text-weight, 700);
+    letter-spacing: var(--popup-text-spacing, normal);
+    line-height: 40px;
+    text-align: center;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  &__button {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--popup-button-py, 16px) - var(--button-border, 0px))
+      calc(var(--popup-button-px, 24px) - var(--button-border, 0px));
+    border: var(--button-border, 0px) solid var(--button-border-color, transparent);
+    border-radius: var(--popup-button-radius, 0);
+    box-shadow: var(--popup-button-shadow, none);
+    outline: var(--popup-button-outline, none);
+    outline-offset: -1.5px;
+    font-family: var(--font);
+    font-size: var(--popup-button-size, 20px);
+    font-weight: 700;
+    letter-spacing: var(--popup-button-spacing, normal);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+
+    &--primary {
+      --button-border: var(--popup-primary-border, 0px);
+      --button-border-color: var(--popup-primary-border-color, transparent);
+      width: var(--popup-primary-w, auto);
+      background: var(--popup-primary-bg, $disabled-bg);
+      color: var(--popup-primary-color, white);
+
+      &:hover {
+        --button-border: var(--popup-primary-hover-border, var(--popup-primary-border, 0px));
+        --button-border-color: var(--popup-primary-hover-border-color, var(--popup-primary-border-color, transparent));
+        background: var(--popup-primary-hover-bg, var(--popup-primary-bg));
+        color: var(--popup-primary-hover-color, var(--popup-primary-color, white));
+        box-shadow: var(--popup-primary-hover-shadow, var(--popup-button-shadow, none));
+        outline: none;
+      }
+    }
+
+    &--secondary {
+      --button-border: var(--popup-secondary-border-w, 2px);
+      --button-border-color: var(--popup-secondary-border, transparent);
+      background: var(--popup-secondary-bg, transparent);
+      color: var(--popup-secondary-color, $primary-dark);
+
+      &:hover {
+        --button-border: var(--popup-secondary-hover-border, var(--popup-secondary-border-w, 2px));
+        background: var(--popup-secondary-hover-bg, var(--popup-secondary-bg));
+        color: var(--popup-secondary-hover-color, var(--popup-secondary-color));
+        box-shadow: var(--popup-secondary-hover-shadow, var(--popup-button-shadow, none));
+        outline: none;
+      }
+    }
+  }
+}

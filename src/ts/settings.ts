@@ -26,7 +26,7 @@ function changePreview() {
     }
     if (input.value === "da-projects") {
       preview!.src = "/src/assets/svg/Theme-Visual-2.svg";
-      theme!.textContent = "DA Projects Theme";
+      theme!.textContent = "DA-Projects Theme";
     }
     if (input.value === "foods") {
       preview!.src = "/src/assets/svg/Theme-Visual-3.svg";
@@ -55,13 +55,13 @@ function changeBoard() {
     const input = event.target as HTMLInputElement;
 
     if (input.value == "16") {
-      size!.textContent = "Board-16 Cards";
+      size!.textContent = "Board - 16 Cards";
     }
     if (input.value == "24") {
-      size!.textContent = "Board-24 Cards";
+      size!.textContent = "Board - 24 Cards";
     }
     if (input.value == "36") {
-      size!.textContent = "Board-36 Cards";
+      size!.textContent = "Board - 36 Cards";
     }
     activateButton();
   });

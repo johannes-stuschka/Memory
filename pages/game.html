@@ -4,8 +4,256 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@700&family=Figtree:wght@400;500;700;800&family=Klee+One:wght@600&family=Orbitron:wght@700;900&display=swap"
+    />
   </head>
-  <body>
+  <!-- data-theme: code-vibes | gaming | da-projects | foods -->
+  <body data-theme="code-vibes">
+    <!-- Brettgröße: game--16 | game--24 | game--36 -->
+    <main class="game game--16">
+      <header class="game__header">
+        <div class="score">
+          <div class="score__player score__player--blue">
+            <span class="score__icon"></span>
+            <span class="score__name">Blue</span>
+            <span class="score__value">0</span>
+          </div>
+          <div class="score__player score__player--orange">
+            <span class="score__icon"></span>
+            <span class="score__name">Orange</span>
+            <span class="score__value">6</span>
+          </div>
+        </div>
+        <p class="current-player">
+          Current player:
+          <span class="current-player__icon"></span>
+        </p>
+        <button class="exit-button" type="button">
+          <span class="exit-button__icon"></span>
+          Exit game
+        </button>
+      </header>
+
+      <div class="board" id="field">
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+        <button class="card" type="button">
+          <div class="card__inner">
+            <div class="card__face"></div>
+            <div class="card__face card__face--back">
+              <img class="card__image" src="../src/assets/game/code-vibes/cards/01.svg" alt="" />
+            </div>
+          </div>
+        </button>
+      </div>
+    </main>
+
+    <!-- Öffnen mit showModal(), schließen mit close() -->
+    <dialog class="popup" id="quit-popup">
+      <div class="popup__content">
+        <p class="popup__question">Are you sure you want to quit the game?</p>
+        <div class="popup__buttons">
+          <button class="popup__button popup__button--primary" type="button">
+            <span class="only only--code only--da">Back to game</span>
+            <span class="only only--gaming only--foods">No, back to game</span>
+          </button>
+          <button class="popup__button popup__button--secondary" type="button">
+            <span class="only only--code only--da only--foods">Exit game</span>
+            <span class="only only--gaming">Yes, quit game</span>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Die drei Endbildschirme: zum Anzeigen das hidden-Attribut entfernen -->
+    <section class="result result--game-over" hidden>
+      <div class="result__wordmark">
+        <img class="result__wordmark-white" src="../src/assets/game/code-vibes/game-over-white.svg" alt="" />
+        <img class="result__wordmark-green" src="../src/assets/game/code-vibes/game-over-green.svg" alt="Game over" />
+      </div>
+      <h1 class="result__headline">GAME OVER</h1>
+      <div class="result__final">
+        <p class="result__final-label">Final score</p>
+        <div class="score score--final">
+        <div class="score__player score__player--blue">
+          <span class="score__icon"></span>
+          <span class="score__name">Blue</span>
+          <span class="score__value">10</span>
+        </div>
+        <div class="score__player score__player--orange">
+          <span class="score__icon"></span>
+          <span class="score__name">Orange</span>
+          <span class="score__value">16</span>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gewinnerfarbe: result--orange | result--blue -->
+    <section class="result result--winner result--orange" hidden>
+      <div class="result__confetti">
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+        <span class="result__confetti-piece"></span>
+      </div>
+      <div class="result__content">
+        <div class="result__text">
+          <p class="result__intro">The winner is</p>
+          <h1 class="result__winner-name">Orange Player</h1>
+        </div>
+        <div class="result__figure"></div>
+        <a class="exit-button result__back" href="/index.html">
+          <span class="only only--code">Back to start</span>
+          <span class="only only--gaming only--da only--foods">Home</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="result result--draw" hidden>
+      <div class="result__content">
+        <div class="result__text">
+          <p class="result__intro">It’s a</p>
+          <div class="result__draw-mark">
+            <img src="../src/assets/game/code-vibes/draw.svg" alt="Draw" />
+          </div>
+          <h1 class="result__draw-headline">DRAW</h1>
+        </div>
+        <div class="result__scale"></div>
+        <a class="exit-button result__back" href="/index.html">
+          <span class="only only--code">Back to start</span>
+          <span class="only only--gaming only--da only--foods">Home</span>
+        </a>
+      </div>
+    </section>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

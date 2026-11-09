@@ -1,0 +1,103 @@
+body[data-theme] {
+  background: var(--page-bg);
+}
+
+.game {
+  box-sizing: border-box;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: var(--game-top);
+
+  &__header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--header-w, 1219px);
+    height: var(--header-h, 102px);
+    margin: 0 auto;
+    padding: var(--header-padding, 24px);
+    background: var(--header-bg, transparent);
+    border-radius: 10px;
+  }
+}
+
+[data-theme="code-vibes"] .game__header {
+  --header-padding: 0;
+  border-radius: 0;
+}
+
+.score {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--score-gap, 40px);
+  height: var(--score-h, 54px);
+  padding: var(--score-padding, 0 16px);
+  background: var(--score-bg, white);
+  border-radius: var(--score-radius, 10px);
+  font-family: var(--font);
+  font-size: var(--score-size);
+  font-weight: 700;
+
+  &__player {
+    display: flex;
+    align-items: center;
+    gap: var(--score-icon-gap);
+
+    &--blue {
+      --player-color: var(--score-blue, #097fc5);
+      color: var(--player-color);
+    }
+
+    &--orange {
+      --player-color: var(--score-orange, #ea6900);
+      order: var(--score-orange-order, -1);
+      color: var(--player-color);
+    }
+  }
+
+  &__icon {
+    width: var(--score-icon-w);
+    height: var(--score-icon-h);
+    background: center / contain no-repeat;
+  }
+
+  &__name {
+    display: var(--score-name-display, none);
+  }
+}
+
+[data-theme="code-vibes"] .score {
+  --score-h: 62px;
+  --score-radius: 0;
+}
+
+.current-player {
+  display: flex;
+  align-items: center;
+  gap: var(--current-gap, 18px);
+  margin: var(--current-margin, 0);
+  color: var(--current-color);
+  font-family: var(--current-font, var(--font));
+  font-size: var(--current-size);
+  font-weight: var(--current-weight, 700);
+  letter-spacing: var(--current-spacing, normal);
+  white-space: nowrap;
+
+  &__icon {
+    width: var(--current-icon-w, 41px);
+    height: var(--current-icon-h, 40px);
+    background: center / contain no-repeat;
+  }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--board-columns), var(--card-w));
+  gap: var(--board-gap);
+  justify-content: center;
+  margin-top: var(--header-gap);
+}

@@ -1,5 +1,8 @@
 @use "./base/fonts";
 @use "./base/base";
+@use "./base/themes";
 @use "./components/main";
 @use "./pages/hero";
 @use "./pages/settings";
+@use "./pages/game";
+@use "./pages/result";

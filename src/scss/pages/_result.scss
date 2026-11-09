@@ -1,0 +1,276 @@
+@use "sass:list";
+@use "sass:map";
+@use "../base/variables" as *;
+
+// Figma schneidet die Konfetti-Teile aus einem Bild aus.
+// Die Ausschnitte: Breite, Höhe, Bildgröße, Bildposition
+$cutouts: (
+  a: (243.402px, 190.284px, 106.35% 136.04%, 0.34px 0),
+  b: (114.572px, 202.374px, 240.54% 136.04%, 0.36px 0),
+  c: (155.261px, 202.374px, 177.5% 136.04%, -103.51px 0),
+  d: (139.996px, 92.431px, 196.85% 297.86%, -118.77px -81.28px),
+  e: (89.888px, 121.092px, 306.59% 227.36%, -111.56px -81.28px),
+);
+
+// Die Teile: Ausschnitt, links, oben, Drehung, gespiegelt
+$pieces: (
+  (a, 137.158px, 64.486px, 17.69deg, 1),
+  (a, 486.36px, 53.053px, -13.07deg, -1),
+  (b, 967.493px, 14.056px, -37.16deg, -1),
+  (b, 361.95px, 87.16px, -167.23deg, -1),
+  (c, 753.408px, 22.4px, 97.13deg, 1),
+  (c, 26.33px, 138.75px, 163.66deg, -1),
+  (d, 10.387px, 37.118px, -50.03deg, 1),
+  (c, 1053.33px, 63.75px, 16.34deg, 1),
+  (e, 908.18px, 157.135px, -73.99deg, -1)
+);
+
+// [hidden] muss gewinnen, sonst bliebe die Fläche wegen display: flex sichtbar
+.result[hidden] {
+  display: none;
+}
+
+.result {
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--result-bg, white);
+  color: white;
+  font-family: var(--result-font, var(--font));
+
+  &--game-over {
+    padding-top: var(--game-over-top, 292px);
+    background: var(--game-over-bg, var(--result-bg));
+    gap: var(--game-over-gap, 104px);
+  }
+
+  &--winner {
+    padding-top: var(--winner-top, 192px);
+  }
+
+  &--draw {
+    padding-top: var(--draw-top, 192px);
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: var(--draw-filter, none);
+  }
+
+  &--winner &__content {
+    filter: none;
+  }
+
+  &__wordmark {
+    display: none;
+    position: relative;
+    width: 990.505px;
+    height: 125.2px;
+
+    img {
+      position: absolute;
+    }
+  }
+
+  &__wordmark-white {
+    left: 5px;
+    top: 2px;
+  }
+
+  &__wordmark-green {
+    left: -6.02px;
+    top: -4px;
+  }
+
+  &__headline {
+    margin: 0;
+    width: var(--game-over-w, auto);
+    color: var(--game-over-color);
+    font-size: var(--game-over-size);
+    font-weight: var(--game-over-weight, 800);
+    letter-spacing: var(--game-over-spacing, normal);
+    text-align: var(--game-over-align, center);
+    text-shadow: var(--game-over-shadow, none);
+    white-space: nowrap;
+  }
+
+  &__final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__final-label {
+    height: var(--final-label-h, auto);
+    margin: 0;
+    font-size: var(--final-label-size, 26px);
+    font-weight: var(--final-label-weight, 400);
+    letter-spacing: var(--final-label-spacing, normal);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &--draw &__text {
+    gap: var(--draw-text-gap, 8px);
+  }
+
+  &--draw &__intro {
+    height: var(--draw-intro-h, var(--result-intro-h, auto));
+    color: var(--draw-intro-color, var(--intro-color, inherit));
+  }
+
+  &__intro {
+    height: var(--result-intro-h, auto);
+    margin: 0;
+    color: var(--intro-color, inherit);
+    font-size: var(--result-intro-size);
+    font-weight: var(--result-intro-weight, 700);
+    letter-spacing: var(--result-intro-spacing, normal);
+    text-align: center;
+  }
+
+  &__winner-name {
+    margin: 0;
+    font-size: var(--winner-text-size);
+    font-weight: var(--winner-text-weight, 700);
+    text-transform: var(--winner-transform, none);
+    letter-spacing: var(--winner-text-spacing, normal);
+    text-align: center;
+    text-shadow: var(--winner-text-shadow, none);
+    white-space: nowrap;
+  }
+
+  &--orange &__winner-name {
+    color: var(--winner-orange);
+  }
+
+  &--blue &__winner-name {
+    color: var(--winner-blue);
+  }
+
+  &__figure {
+    width: var(--winner-figure-w);
+    height: var(--winner-figure-h);
+    position: relative;
+    margin-top: 64px;
+    background: var(--winner-figure-bg, transparent);
+    filter: var(--winner-figure-shadow, none);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: var(--winner-image-left, 0);
+      top: var(--winner-image-top, 0);
+      width: var(--winner-image-w, 100%);
+      height: var(--winner-image-h, 100%);
+      background-repeat: no-repeat;
+      background-size: var(--winner-figure-size, 100% 100%);
+      background-position: var(--winner-figure-position, 0 0);
+    }
+  }
+
+  &__draw-mark {
+    display: none;
+    position: relative;
+    width: 419.974px;
+    height: 78.8px;
+
+    img {
+      position: absolute;
+      left: -11px;
+      top: -6px;
+    }
+  }
+
+  &__draw-headline {
+    width: var(--draw-headline-w);
+    height: var(--draw-headline-h, auto);
+    margin: 0;
+    color: var(--draw-headline-color);
+    font-size: 128px;
+    font-weight: var(--draw-headline-weight, 700);
+    letter-spacing: var(--draw-headline-spacing, normal);
+    text-align: center;
+    text-shadow: var(--draw-headline-shadow, none);
+  }
+
+  &__scale {
+    position: relative;
+    width: var(--scale-box-w, 339.42px);
+    height: var(--scale-box-h, 272.08px);
+    margin-top: var(--draw-scale-gap, 8px);
+    background: var(--scale-box-bg, transparent);
+    filter: var(--scale-box-filter, none);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: var(--scale-left);
+      top: var(--scale-top);
+      width: var(--scale-w);
+      height: var(--scale-h);
+      background: center / 100% 100% no-repeat;
+    }
+  }
+
+  &__back {
+    margin-top: 64px;
+  }
+
+  &__confetti {
+    display: none;
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    width: 1233.923px;
+    height: 358.879px;
+    transform: translateX(-50%);
+  }
+
+  &__confetti-piece {
+    position: absolute;
+    background-image: url("../../assets/game/code-vibes/confetti.png");
+    background-repeat: no-repeat;
+
+    @for $i from 1 through list.length($pieces) {
+      $piece: list.nth($pieces, $i);
+      $cutout: map.get($cutouts, list.nth($piece, 1));
+
+      &:nth-child(#{$i}) {
+        left: list.nth($piece, 2);
+        top: list.nth($piece, 3);
+        width: list.nth($cutout, 1);
+        height: list.nth($cutout, 2);
+        background-size: list.nth($cutout, 3);
+        background-position: list.nth($cutout, 4);
+        transform: rotate(list.nth($piece, 4)) scaleY(list.nth($piece, 5));
+      }
+    }
+  }
+}
+
+// Die Abschlusswertung nutzt die Score-Box aus dem Header
+.score--final {
+  --score-size: var(--final-score-size, 24px);
+  --score-h: var(--final-score-h, 62px);
+  --score-gap: var(--final-score-gap, 40px);
+  --score-icon-gap: var(--final-score-icon-gap, 4px);
+  --score-icon-w: var(--final-score-icon-w, 24px);
+  --score-icon-h: var(--final-score-icon-h, 20px);
+  --score-radius: var(--final-score-radius, 10px);
+  width: var(--final-score-w, auto);
+  font-family: var(--final-score-font, var(--font));
+}
