@@ -1,8 +1,11 @@
 import "./scss/main.scss";
 import { initSettings } from "./ts/settings";
+import { createDeck } from "./ts/cards";
+import { renderBoard } from "./ts/game";
 
 init();
 initSettings();
+renderBoard();
 
 function init() {
   const fieldRef = document.getElementById("field");
@@ -15,3 +18,5 @@ function init() {
     });
   }
 }
+
+console.log(createDeck(18, "code-vibes"));
