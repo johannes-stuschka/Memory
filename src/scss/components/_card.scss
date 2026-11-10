@@ -51,6 +51,7 @@
   // Die SVGs bringen ihre Figma-Größe mit
   &__image {
     display: block;
+    -webkit-user-drag: none;
   }
 
   &.is-flipped .card__inner {
