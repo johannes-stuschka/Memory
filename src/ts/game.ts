@@ -74,6 +74,7 @@ function switchPlayer() {
     currentPlayer = "blue";
   }
   console.log(`It's ${currentPlayer}'s turn!`);
+  updateCurrentPlayer(currentPlayer);
 }
 
 function countPlayerScore(player: "blue" | "orange") {
@@ -83,4 +84,17 @@ function countPlayerScore(player: "blue" | "orange") {
   if (playerScore) {
     playerScore.textContent = String(scores[player]);
   }
+}
+
+function updateCurrentPlayer(player: "blue" | "orange") {
+  const playerSymbol = document.querySelector(".current-player");
+  if (playerSymbol) {
+    playerSymbol.classList.toggle("current-player--orange", player === "orange");
+  }
+}
+
+function isGamerOver(): boolean {
+  let card = flippedCards.length 
+  let pairs =
+  return true
 }
