@@ -47,15 +47,17 @@ export function handleCardClick(card: HTMLButtonElement) {
 function checkCards() {
   if (flippedCards.length === 2) {
     if (flippedCards[0].dataset.pairId === flippedCards[1].dataset.pairId) {
-      console.log("You got a pair!");
       for (const card of flippedCards) {
         card.classList.add("is-matched");
       }
       countPlayerScore(currentPlayer);
       flippedCards = [];
+      if (isGameOver()) {
+        setTimeout(showGameOver, 1500);
+      }
     } else {
       setTimeout(closeCards, 1500);
-      switchPlayer();
+      setTimeout(switchPlayer, 1500);
     }
   }
 }
@@ -73,16 +75,14 @@ function switchPlayer() {
   } else {
     currentPlayer = "blue";
   }
-  console.log(`It's ${currentPlayer}'s turn!`);
   updateCurrentPlayer(currentPlayer);
 }
 
 function countPlayerScore(player: "blue" | "orange") {
-  const playerScore = document.querySelector(`.score__player--${player} .score__value`);
-  console.log(playerScore);
+  const playerScore = document.querySelectorAll(`.score__player--${player} .score__value`);
   scores[player] += 1;
-  if (playerScore) {
-    playerScore.textContent = String(scores[player]);
+  for (const card of playerScore) {
+    card.textContent = String(scores[player]);
   }
 }
 
@@ -93,8 +93,50 @@ function updateCurrentPlayer(player: "blue" | "orange") {
   }
 }
 
-function isGamerOver(): boolean {
-  let card = flippedCards.length 
-  let pairs =
-  return true
+function isGameOver(): boolean {
+  const allCards = document.querySelectorAll(".card");
+  const allPairs = document.querySelectorAll(".is-matched");
+  if (allCards.length === allPairs.length) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function showGameOver() {
+  const endScreenRef = document.querySelector(".result--game-over");
+  if (endScreenRef) {
+    endScreenRef.removeAttribute("hidden");
+    setTimeout(showResults, 3000);
+  }
+}
+
+function showResults() {
+  if (scores["blue"] > scores["orange"]) {
+    showWinner("blue");
+  } else if (scores["orange"] > scores["blue"]) {
+    showWinner("orange");
+  } else {
+    console.log("Draw");
+    showDraw();
+  }
+}
+
+function showDraw() {
+  const endScreenRef = document.querySelector(".result--draw");
+  if (endScreenRef) {
+    endScreenRef.removeAttribute("hidden");
+  }
+}
+
+function showWinner(player: "blue" | "orange") {
+  const winner = document.querySelector(".result--winner");
+  if (winner) {
+    const winnerNameRef = winner.querySelector(".result__winner-name");
+    if (winnerNameRef) {
+      winnerNameRef.textContent = `${player} Player`;
+    }
+    winner.classList.add(`result--${player}`);
+    winner.removeAttribute("hidden");
+  }
 }

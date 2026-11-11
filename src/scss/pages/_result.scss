@@ -5,11 +5,36 @@
 // Figma schneidet die Konfetti-Teile aus einem Bild aus.
 // Die Ausschnitte: Breite, Höhe, Bildgröße, Bildposition
 $cutouts: (
-  a: (243.402px, 190.284px, 106.35% 136.04%, 0.34px 0),
-  b: (114.572px, 202.374px, 240.54% 136.04%, 0.36px 0),
-  c: (155.261px, 202.374px, 177.5% 136.04%, -103.51px 0),
-  d: (139.996px, 92.431px, 196.85% 297.86%, -118.77px -81.28px),
-  e: (89.888px, 121.092px, 306.59% 227.36%, -111.56px -81.28px),
+  a: (
+    243.402px,
+    190.284px,
+    106.35% 136.04%,
+    0.34px 0,
+  ),
+  b: (
+    114.572px,
+    202.374px,
+    240.54% 136.04%,
+    0.36px 0,
+  ),
+  c: (
+    155.261px,
+    202.374px,
+    177.5% 136.04%,
+    -103.51px 0,
+  ),
+  d: (
+    139.996px,
+    92.431px,
+    196.85% 297.86%,
+    -118.77px -81.28px,
+  ),
+  e: (
+    89.888px,
+    121.092px,
+    306.59% 227.36%,
+    -111.56px -81.28px,
+  ),
 );
 
 // Die Teile: Ausschnitt, links, oben, Drehung, gespiegelt
@@ -146,7 +171,7 @@ $pieces: (
     margin: 0;
     font-size: var(--winner-text-size);
     font-weight: var(--winner-text-weight, 700);
-    text-transform: var(--winner-transform, none);
+    text-transform: var(--winner-transform, capitalize);
     letter-spacing: var(--winner-text-spacing, normal);
     text-align: center;
     text-shadow: var(--winner-text-shadow, none);

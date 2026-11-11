@@ -6,7 +6,7 @@ import { handleCardClick } from "./ts/game";
 
 init();
 initSettings();
-renderBoard(createDeck(8, "da-projects"));
+renderBoard(createDeck(1, "da-projects"));
 
 function init() {
   const fieldRef = document.getElementById("field");
