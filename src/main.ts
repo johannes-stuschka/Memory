@@ -3,10 +3,12 @@ import { initSettings } from "./ts/settings";
 import { createDeck } from "./ts/cards";
 import { renderBoard } from "./ts/game";
 import { handleCardClick } from "./ts/game";
+import { initExitPopUp } from "./ts/game";
 
 init();
 initSettings();
-renderBoard(createDeck(1, "da-projects"));
+renderBoard(createDeck(8, "da-projects"));
+initExitPopUp();
 
 function init() {
   const fieldRef = document.getElementById("field");

@@ -140,3 +140,15 @@ function showWinner(player: "blue" | "orange") {
     winner.removeAttribute("hidden");
   }
 }
+
+export function initExitPopUp() {
+  const exitButton = document.querySelector(".exit-button");
+  const quitPopUp = document.querySelector<HTMLDialogElement>("#quit-popup");
+  const keepPlaying = document.querySelector(".popup__button--primary");
+  const exitGame = document.querySelector(".popup__button--secondary");
+  if (exitButton && quitPopUp && keepPlaying && exitGame) {
+    exitButton.addEventListener("click", (event) => quitPopUp.showModal());
+    keepPlaying.addEventListener("click", (event) => quitPopUp.close());
+    exitGame.addEventListener("click", (event) => (window.location.href = "/index.html"));
+  }
+}

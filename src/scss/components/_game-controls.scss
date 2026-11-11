@@ -115,7 +115,12 @@ $theme-names: (
     letter-spacing: var(--popup-button-spacing, normal);
     white-space: nowrap;
     cursor: pointer;
-    transition: 300ms ease-in-out;
+    // Nur Farben animieren: Rahmen und Padding wechseln sofort zusammen, sonst wackelt die Größe beim Hover
+    transition:
+      background-color 300ms ease-in-out,
+      border-color 300ms ease-in-out,
+      color 300ms ease-in-out,
+      box-shadow 300ms ease-in-out;
 
     &--primary {
       --button-border: var(--popup-primary-border, 0px);
