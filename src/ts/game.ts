@@ -1,6 +1,8 @@
 import type { Card } from "./cards";
 
 let flippedCards: HTMLButtonElement[] = [];
+let currentPlayer: "blue" | "orange" = "blue";
+let scores = { blue: 0, orange: 0 };
 
 export function renderBoard(cards: Card[]) {
   const boardRef = document.getElementById("field");
@@ -49,10 +51,11 @@ function checkCards() {
       for (const card of flippedCards) {
         card.classList.add("is-matched");
       }
+      countPlayerScore(currentPlayer);
       flippedCards = [];
     } else {
-      console.log("NOPE!");
       setTimeout(closeCards, 1500);
+      switchPlayer();
     }
   }
 }
@@ -62,4 +65,22 @@ function closeCards() {
     card.classList.remove("is-flipped");
   }
   flippedCards = [];
+}
+
+function switchPlayer() {
+  if (currentPlayer === "blue") {
+    currentPlayer = "orange";
+  } else {
+    currentPlayer = "blue";
+  }
+  console.log(`It's ${currentPlayer}'s turn!`);
+}
+
+function countPlayerScore(player: "blue" | "orange") {
+  const playerScore = document.querySelector(`.score__player--${player} .score__value`);
+  console.log(playerScore);
+  scores[player] += 1;
+  if (playerScore) {
+    playerScore.textContent = String(scores[player]);
+  }
 }
