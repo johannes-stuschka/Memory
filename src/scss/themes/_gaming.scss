@@ -1,0 +1,152 @@
+@use "../abstracts" as *;
+
+[data-theme="gaming"] {
+  --page-bg: #294f60;
+  --font: Orbitron;
+
+  @include board-size(16, 41px, 54px, 16px);
+  @include board-size(24, 38px, 54px, 6px);
+  @include board-size(36, 10px, 20px, 6px);
+
+  --header-bg: rgba(253, 150, 201, 0.2);
+
+  --score-size: 30px;
+  --score-icon-gap: 8px;
+  --score-icon-w: 22px;
+  --score-icon-h: 28px;
+
+  --current-size: 32px;
+  --current-spacing: 2.24px;
+  --current-color: white;
+
+  --exit-bg: rgba(237, 27, 118, 0.08);
+  --exit-border: 2px;
+  --exit-border-color: #e71c4f;
+  --exit-size: 20px;
+  --exit-line-height: 25px;
+  --exit-spacing: 0.8px;
+  --exit-color: white;
+
+  --card-w: 105px;
+  --card-h: 120px;
+  --card-radius: 12px;
+  --card-shadow: 6px 6px 6px rgba(0, 0, 0, 0.25);
+  --card-cover-bg: linear-gradient(143.55deg, #ed1b76 1.2759%, #0a2835 142.53%);
+  --card-cover-icon-display: none;
+  --card-face-bg: #f6f1f3;
+
+  --popup-bg: #f0f6f9;
+  --popup-radius: 20px;
+  --popup-text-w: 376px;
+  --popup-text-size: 28px;
+  --popup-text-h: 76px;
+  --popup-text-spacing: 0.56px;
+  --popup-text-color: #294f60;
+  --popup-button-py: 12px;
+  --popup-button-px: 20px;
+  --popup-button-size: 16px;
+  --popup-button-spacing: 0.64px;
+  --popup-button-radius: 10px;
+  --popup-primary-bg: #ed1b76;
+  --popup-primary-border: 1px;
+  --popup-primary-border-color: #e71c4f;
+  --popup-secondary-bg: rgba(237, 27, 118, 0.08);
+  --popup-secondary-border: #e71c4f;
+  --popup-secondary-color: #ed1b76;
+
+  --result-bg: #294f60;
+  --result-intro-size: 28px;
+  --result-intro-spacing: 1.96px;
+  --result-intro-h: 30px;
+
+  --winner-top: 192.5px;
+  --winner-text-size: 64px;
+  --winner-text-h: 80px;
+  --winner-text-spacing: 4.48px;
+  --winner-text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  --winner-blue: #2298db;
+  --winner-figure-w: 288px;
+  --winner-figure-h: 344px;
+  --winner-figure-size: 119.52% 100%;
+  --winner-figure-position: -30.99px 0;
+  --winner-figure-shadow: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25));
+
+  --draw-top: 215.96px;
+  --draw-filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25));
+  --draw-headline-w: 578px;
+  --draw-headline-h: 161px;
+  --draw-headline-color: #ed1b76;
+  --draw-headline-spacing: 8.96px;
+  --draw-headline-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  --scale-w: 350px;
+  --scale-h: 280.08px;
+  --scale-left: -5.3px;
+  --scale-top: -4px;
+
+  --game-over-top: 291px;
+  --game-over-size: 124px;
+  --game-over-weight: 900;
+  --game-over-spacing: 8.68px;
+  --game-over-color: #ed1b76;
+  --game-over-w: 969px;
+  --game-over-align: left;
+  --final-label-size: 28px;
+  --final-label-weight: 700;
+  --final-label-spacing: 1.96px;
+  --final-label-h: 30px;
+  --final-score-size: 40px;
+  --final-score-h: 66px;
+  --final-score-w: 222px;
+  --final-score-icon-gap: 8px;
+  --final-score-icon-w: 26px;
+  --final-score-icon-h: 32px;
+  --winner-orange: #ea6900;
+
+  --exit-hover-bg: rgba(237, 27, 118, 0.14);
+  --exit-hover-border: 3px;
+  --exit-hover-shadow: 3px 3px 5px rgba(47, 46, 46, 0.2);
+  --exit-hover-icon-filter: drop-shadow(3px 3px 4.5px rgba(0, 0, 0, 0.35));
+
+  --popup-primary-hover-bg: rgba(242, 199, 218, 0.08);
+  --popup-primary-hover-border: 2px;
+  --popup-primary-hover-color: #ed1b76;
+  --popup-primary-hover-shadow: 3px 3px 5px rgba(47, 46, 46, 0.2);
+  --popup-secondary-hover-bg: rgba(237, 27, 118, 0.14);
+  --popup-secondary-hover-border: 3px;
+  --popup-secondary-hover-shadow: 3px 3px 5px rgba(47, 46, 46, 0.2);
+
+  --match-bg: #f6f1f3;
+  --match-shadow: inset 0 0 0 3px #ed1b76, 5px 5px 8px rgba(237, 27, 118, 0.3);
+
+  .score__player--blue .score__icon {
+    background-image: url("../../assets/game/gaming/pawn-blue.svg");
+  }
+
+  .score__player--orange .score__icon {
+    background-image: url("../../assets/game/gaming/pawn-orange.svg");
+  }
+
+  .current-player__icon {
+    background-image: url("../../assets/game/gaming/current-player.svg");
+  }
+
+  .current-player--orange .current-player__icon {
+    background-image: url("../../assets/game/gaming/current-player-orange.svg");
+  }
+
+  .exit-button__icon {
+    background-image: url("../../assets/game/gaming/exit.svg");
+  }
+
+  .exit-button:hover .exit-button__icon {
+    background-image: url("../../assets/game/gaming/exit-hover.svg");
+  }
+
+  .result__scale::before {
+    background-image: url("../../assets/game/gaming/scale.svg");
+  }
+
+  .result__figure::before {
+    background-image: url("../../assets/game/gaming/trophy.png");
+  }
+}

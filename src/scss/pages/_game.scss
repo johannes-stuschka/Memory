@@ -28,53 +28,6 @@ body[data-theme] {
   border-radius: 0;
 }
 
-.score {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--score-gap, 40px);
-  height: var(--score-h, 54px);
-  padding: var(--score-padding, 0 16px);
-  background: var(--score-bg, white);
-  border-radius: var(--score-radius, 10px);
-  font-family: var(--font);
-  font-size: var(--score-size);
-  font-weight: 700;
-
-  &__player {
-    display: flex;
-    align-items: center;
-    gap: var(--score-icon-gap);
-
-    &--blue {
-      --player-color: var(--score-blue, #097fc5);
-      color: var(--player-color);
-    }
-
-    &--orange {
-      --player-color: var(--score-orange, #ea6900);
-      order: var(--score-orange-order, -1);
-      color: var(--player-color);
-    }
-  }
-
-  &__icon {
-    width: var(--score-icon-w);
-    height: var(--score-icon-h);
-    background: center / contain no-repeat;
-  }
-
-  &__name {
-    display: var(--score-name-display, none);
-  }
-}
-
-[data-theme="code-vibes"] .score {
-  --score-h: 62px;
-  --score-radius: 0;
-}
-
 .current-player {
   display: flex;
   align-items: center;

@@ -1,0 +1,12 @@
+$theme-names: (
+  "code-vibes": "code",
+  "gaming": "gaming",
+  "da-projects": "da",
+  "foods": "foods",
+);
+
+@each $theme, $name in $theme-names {
+  [data-theme="#{$theme}"] .only:not(.only--#{$name}) {
+    display: none;
+  }
+}

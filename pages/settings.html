@@ -13,31 +13,31 @@
         <form class="settings__options">
           <fieldset class="settings__group">
             <legend class="settings__group-title">
-              <img src="../src/assets/svg/palette.svg" alt="" />
-              Game Themes
+              <img src="../src/assets/icons/palette.svg" alt="" />
+              Game themes
             </legend>
             <label class="settings__option">
               <input type="radio" name="theme" value="code-vibes" checked />
-              <span>Code Vibes Theme</span>
+              <span>Code vibes theme</span>
             </label>
             <label class="settings__option">
               <input type="radio" name="theme" value="gaming" />
-              <span>Gaming Theme</span>
+              <span>Gaming theme</span>
             </label>
             <label class="settings__option">
               <input type="radio" name="theme" value="da-projects" />
-              <span>DA-Projects Theme</span>
+              <span>DA Projects theme</span>
             </label>
             <label class="settings__option">
               <input type="radio" name="theme" value="foods" />
-              <span>Foods Theme</span>
+              <span>Foods theme</span>
             </label>
           </fieldset>
 
           <fieldset class="settings__group">
             <legend class="settings__group-title">
-              <img src="../src/assets/svg/chess_pawn.svg" alt="" />
-              Choose Player
+              <img src="../src/assets/icons/chess-pawn.svg" alt="" />
+              Choose player
             </legend>
             <label class="settings__option">
               <input type="radio" name="player" value="blue" />
@@ -51,20 +51,20 @@
 
           <fieldset class="settings__group">
             <legend class="settings__group-title">
-              <img src="../src/assets/svg/style.svg" alt="" />
-              Board Size
+              <img src="../src/assets/icons/style.svg" alt="" />
+              Board size
             </legend>
             <label class="settings__option">
               <input type="radio" name="board-size" value="16" />
-              <span>16 Cards</span>
+              <span>16 cards</span>
             </label>
             <label class="settings__option">
               <input type="radio" name="board-size" value="24" />
-              <span>24 Cards</span>
+              <span>24 cards</span>
             </label>
             <label class="settings__option">
               <input type="radio" name="board-size" value="36" />
-              <span>36 Cards</span>
+              <span>36 cards</span>
             </label>
           </fieldset>
         </form>
@@ -72,24 +72,29 @@
         <div class="settings__preview">
           <img
             class="settings__theme-visual"
-            src="../src/assets/svg/theme-visual.svg"
+            src="../src/assets/images/theme-visuals/code-vibes.svg"
             alt="Preview of the code vibes theme"
           />
 
           <div class="settings__summary">
-            <span class="game-theme">Code Vibes Theme</span>
+            <span class="game-theme">Code vibes theme</span>
             <span class="settings__divider"></span>
             <span class="player-color">Player</span>
             <span class="settings__divider"></span>
             <span class="board-size">Board size</span>
             <a class="small-button" href="game.html" aria-disabled="true" tabindex="-1">
-              <img src="../src/assets/svg/smart-display.svg" alt="" />
+              <img class="small-button__icon" src="../src/assets/icons/smart-display.svg" alt="" />
+              <img
+                class="small-button__icon small-button__icon--disabled"
+                src="../src/assets/icons/smart-display-disabled.svg"
+                alt=""
+              />
               Start
             </a>
           </div>
         </div>
       </div>
     </section>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="../src/pages/settings.ts"></script>
   </body>
 </html>

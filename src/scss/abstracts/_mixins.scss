@@ -1,0 +1,14 @@
+@mixin board-size($size, $top, $header-gap, $gap) {
+  $columns: 6;
+
+  @if $size == 16 {
+    $columns: 4;
+  }
+
+  .game--#{$size} {
+    --game-top: #{$top};
+    --header-gap: #{$header-gap};
+    --board-gap: #{$gap};
+    --board-columns: #{$columns};
+  }
+}

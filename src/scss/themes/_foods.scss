@@ -1,0 +1,168 @@
+@use "../abstracts" as *;
+
+[data-theme="foods"] {
+  --page-bg: white;
+  --font: "Delius Unicase";
+
+  @include board-size(16, 10px, 54px, 16px);
+  @include board-size(24, 39px, 54px, 8px);
+  @include board-size(36, 10px, 20px, 6px);
+
+  --header-bg: #f0e5d9;
+
+  --score-size: 30px;
+  --score-icon-gap: 4px;
+  --score-icon-w: 20px;
+  --score-icon-h: 25px;
+
+  --current-font: "Klee One";
+  --current-weight: 600;
+  --current-size: 32px;
+  --current-color: #a45212;
+
+  --exit-bg: #fff9f2;
+  --exit-outline: 3px solid #f3832d;
+  --exit-size: 16px;
+  --exit-line-height: 21px;
+  --exit-color: #f3832d;
+  --exit-icon-size: 22px;
+
+  --card-w: 122px;
+  --card-h: 120px;
+  --card-cover-bg: #f3832d;
+  --card-face-bg: #f4ece4;
+
+  --result-font: "Klee One";
+  --result-bg: #f6f6f6;
+  --game-over-bg: #f3832d;
+  --result-intro-size: 40px;
+  --result-intro-weight: 600;
+  --result-intro-h: 37px;
+  --intro-color: #a45212;
+  --game-over-top: 292px;
+  --game-over-gap: 104px;
+  --game-over-size: 130px;
+  --game-over-weight: 600;
+  --game-over-color: white;
+  --game-over-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --final-label-size: 42px;
+  --final-label-weight: 600;
+  --final-label-h: 48px;
+  --final-score-font: RedRose;
+  --final-score-size: 40px;
+  --final-score-h: 76px;
+  --final-score-w: 220px;
+  --final-score-radius: 0;
+  --final-score-icon-gap: 8px;
+  --final-score-icon-w: 24px;
+  --final-score-icon-h: 30px;
+
+  --winner-top: 192px;
+  --winner-text-size: 80px;
+  --winner-text-weight: 600;
+  --winner-orange: #a45212;
+  --winner-blue: #a45212;
+  --winner-figure-w: 260px;
+  --winner-figure-h: 298px;
+  --winner-figure-bg: #f7e6d5;
+  --winner-figure-shadow: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.25));
+  --winner-image-w: 200px;
+  --winner-image-h: 250px;
+  --winner-image-left: 30px;
+  --winner-image-top: 24px;
+
+  --draw-top: 185px;
+  --draw-intro-h: 58px;
+  --draw-intro-color: #f3832d;
+  --draw-headline-w: 376px;
+  --draw-headline-h: 185px;
+  --draw-headline-weight: 600;
+  --draw-headline-color: #f3832d;
+  --scale-box-w: 311px;
+  --scale-box-h: 285px;
+  --scale-box-bg: #f7e6d5;
+  --scale-box-filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.25));
+  --scale-w: 295.222px;
+  --scale-h: 243px;
+  --scale-left: 14px;
+  --scale-top: 21px;
+
+  --exit-hover-bg: #f3832d;
+  --exit-hover-color: white;
+  --exit-hover-outline: none;
+  --exit-hover-shadow: 3px 3px 5px rgba(47, 46, 46, 0.2);
+  --exit-hover-icon-filter: drop-shadow(2px 2px 3px rgba(29, 29, 29, 0.2));
+
+  --popup-bg: #f6f6f6;
+  --popup-radius: 20px;
+  --popup-font: "Klee One";
+  --popup-text-weight: 600;
+  --popup-text-w: 376px;
+  --popup-text-h: 76px;
+  --popup-text-size: 28px;
+  --popup-text-color: #a45212;
+  --popup-button-py: 12px;
+  --popup-button-px: 20px;
+  --popup-button-size: 16px;
+  --popup-button-radius: 10px;
+  --popup-button-outline: 3px solid #f3832d;
+  --popup-primary-bg: #ffab3e;
+  --popup-primary-hover-bg: #f3832d;
+  --popup-primary-hover-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  --popup-secondary-bg: #fff9f2;
+  --popup-secondary-border-w: 0px;
+  --popup-secondary-color: #f3832d;
+  --popup-secondary-hover-bg: #f3832d;
+  --popup-secondary-hover-color: white;
+  --popup-secondary-hover-shadow: 3px 3px 5px rgba(47, 46, 46, 0.2);
+
+  --match-shadow: inset 0 0 0 2px #f3832d, 0 0 0 2px #f3832d;
+  --match-image: 106px;
+
+  .result__back {
+    --exit-bg: #f3832d;
+    --exit-color: white;
+    --exit-outline: none;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .score__player--blue .score__icon {
+    background-image: url("../../assets/game/foods/pawn-blue.svg");
+  }
+
+  .score__player--orange .score__icon {
+    background-image: url("../../assets/game/foods/pawn-orange.svg");
+  }
+
+  .current-player__icon {
+    background-image: url("../../assets/game/foods/current-player.svg");
+  }
+
+  .current-player--orange .current-player__icon {
+    background-image: url("../../assets/game/foods/current-player-orange.svg");
+  }
+
+  .exit-button__icon {
+    background-image: url("../../assets/game/foods/exit.svg");
+  }
+
+  .exit-button:hover .exit-button__icon {
+    background-image: url("../../assets/game/foods/exit-hover.svg");
+  }
+
+  .card__face::before {
+    background-image: url("../../assets/game/foods/card-cover.png");
+  }
+
+  .result--orange .result__figure::before {
+    background-image: url("../../assets/game/foods/winner-orange.svg");
+  }
+
+  .result--blue .result__figure::before {
+    background-image: url("../../assets/game/foods/winner-blue.svg");
+  }
+
+  .result__scale::before {
+    background-image: url("../../assets/game/foods/scale.svg");
+  }
+}

@@ -1,9 +1,7 @@
 @use "sass:list";
 @use "sass:map";
-@use "../base/variables" as *;
+@use "../abstracts" as *;
 
-// Figma schneidet die Konfetti-Teile aus einem Bild aus.
-// Die Ausschnitte: Breite, Höhe, Bildgröße, Bildposition
 $cutouts: (
   a: (
     243.402px,
@@ -37,7 +35,6 @@ $cutouts: (
   ),
 );
 
-// Die Teile: Ausschnitt, links, oben, Drehung, gespiegelt
 $pieces: (
   (a, 137.158px, 64.486px, 17.69deg, 1),
   (a, 486.36px, 53.053px, -13.07deg, -1),
@@ -50,7 +47,6 @@ $pieces: (
   (e, 908.18px, 157.135px, -73.99deg, -1)
 );
 
-// [hidden] muss gewinnen, sonst bliebe die Fläche wegen display: flex sichtbar
 .result[hidden] {
   display: none;
 }
@@ -168,6 +164,7 @@ $pieces: (
   }
 
   &__winner-name {
+    height: var(--winner-text-h, auto);
     margin: 0;
     font-size: var(--winner-text-size);
     font-weight: var(--winner-text-weight, 700);
@@ -287,7 +284,6 @@ $pieces: (
   }
 }
 
-// Die Abschlusswertung nutzt die Score-Box aus dem Header
 .score--final {
   --score-size: var(--final-score-size, 24px);
   --score-h: var(--final-score-h, 62px);

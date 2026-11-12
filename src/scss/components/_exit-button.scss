@@ -1,0 +1,48 @@
+.exit-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: calc(var(--exit-py, 12px) - var(--exit-border, 0px)) calc(var(--exit-px, 20px) - var(--exit-border, 0px));
+  background: var(--exit-bg);
+  border: var(--exit-border, 0px) solid var(--exit-border-color, transparent);
+  border-radius: var(--exit-radius, 10px);
+  color: var(--exit-color);
+  font-family: var(--font);
+  font-size: var(--exit-size);
+  font-weight: 700;
+  letter-spacing: var(--exit-spacing, normal);
+  line-height: var(--exit-line-height, normal);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  outline: var(--exit-outline, none);
+  outline-offset: -1.5px;
+  transition: 300ms ease-in-out;
+
+  &__icon {
+    width: var(--exit-icon-size, 30px);
+    height: var(--exit-icon-size, 30px);
+    background: center / contain no-repeat;
+    transition: filter 300ms ease-in-out;
+  }
+
+  &:hover {
+    padding: calc(var(--exit-py, 12px) - var(--exit-hover-border, var(--exit-border, 0px)))
+      calc(var(--exit-px, 20px) - var(--exit-hover-border, var(--exit-border, 0px)));
+    background: var(--exit-hover-bg, var(--exit-bg));
+    border-width: var(--exit-hover-border, var(--exit-border, 0px));
+    color: var(--exit-hover-color, var(--exit-color));
+    outline: var(--exit-hover-outline, var(--exit-outline, none));
+    box-shadow: var(--exit-hover-shadow, none);
+  }
+
+  &:hover &__icon {
+    filter: var(--exit-hover-icon-filter, none);
+  }
+}
+
+[data-theme="code-vibes"] .exit-button {
+  --exit-radius: 0;
+}

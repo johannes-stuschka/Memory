@@ -1,4 +1,4 @@
-@use "../base/variables" as *;
+@use "../abstracts" as *;
 
 .card {
   width: var(--card-w);
@@ -16,7 +16,6 @@
     transition: all 300ms ease-in-out;
   }
 
-  // Standardseite: die verdeckte Karte
   &__face {
     position: absolute;
     inset: 0;
@@ -37,7 +36,6 @@
       opacity: 0.2;
     }
 
-    // Rückseite: das Motiv, sichtbar nach .is-flipped
     &--back {
       transform: rotateY(180deg);
       background: var(--card-face-bg, $light-gray);
@@ -48,7 +46,6 @@
     }
   }
 
-  // Die SVGs bringen ihre Figma-Größe mit
   &__image {
     display: block;
     -webkit-user-drag: none;
@@ -58,7 +55,6 @@
     transform: rotateY(180deg);
   }
 
-  // Gefundenes Paar
   &.is-matched .card__face--back {
     background: var(--match-bg, var(--card-face-bg));
     box-shadow: var(--match-shadow, none);
