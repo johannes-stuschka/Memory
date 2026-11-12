@@ -26,8 +26,8 @@ Der Build landet in `dist/`. Für die Veröffentlichung wird nur der **Inhalt** 
 index.html              Startseite
 pages/                  Settings und Spiel
 src/
-  pages/                ein Einstieg pro Seite (home, settings, game)
   ts/
+    pages/              ein Einstieg pro Seite (home, settings, game)
     game/               Brett, Karten, Spieler, Ergebnis, Exit-Pop-up
     settings/           Formular der Settings-Seite
     shared/             Typen und gespeicherte Einstellungen
